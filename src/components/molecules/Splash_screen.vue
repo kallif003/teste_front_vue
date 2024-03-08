@@ -21,6 +21,6 @@ import router from "@/router";
 onMounted(() => {
   setTimeout(() => {
     router.push("/home");
-  }, 3000);
+  }, 5000);
 });
 </script>
