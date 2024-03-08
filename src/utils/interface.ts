@@ -16,6 +16,10 @@ export interface IWrapperVariant {
   filter: string;
   dataTable: string;
   titloArea: string;
+  backgroundCard: string;
+  card: string;
+  cardHeader: string;
+  cardContent: string;
 }
 
 export interface IPagination {

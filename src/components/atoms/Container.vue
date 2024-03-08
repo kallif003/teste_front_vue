@@ -43,8 +43,9 @@ const container_class = computed(() => {
 					justify-evenly
 					w-[20%]
 					items-center
-					sm:w-[40%]
+					sm:w-[60%]
 					sm:space-x-2
+					sm:mb-2
 				`,
 
         loadingContainer: `

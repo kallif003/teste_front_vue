@@ -55,6 +55,35 @@ const wrapper_class = computed(() => {
           flex-col 
           items-center
         `,
+
+        backgroundCard: `
+            shadow-[0_0.3rem_0.62rem_rgba(252,142,43,0.3)]
+            bg-v_white
+            rounded-lg 
+            text-black
+            flex
+        `,
+
+        card: `
+          h-20rem
+          overflow-x-auto
+          space-y-2
+          px-2
+        `,
+
+        cardHeader: `
+          bg-orange 
+          px-2 
+          py-2 
+          rounded-lg
+          text-white
+        `,
+
+        cardContent: `
+          px-2 
+          py-2 
+          text-black
+        `,
       },
     },
   })({

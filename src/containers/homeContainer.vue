@@ -16,12 +16,16 @@
       </Wrapper>
     </Wrapper>
 
-    <Wrapper type="dataTable">
+    <Wrapper type="dataTable" class="sm:hidden">
       <v-data-table-virtual
         :headers="headers"
         :items="items"
         height="500"
       ></v-data-table-virtual>
+    </Wrapper>
+
+    <Wrapper type="card" class="md:hidden lg:hidden xl:hidden">
+      <Card :headers="headers" :content="items" />
     </Wrapper>
 
     <WrapperPagination :totalPages="totalPages" :itemsPerPage="itemsPerPage">
@@ -39,6 +43,7 @@
 
 <script setup lang="ts">
 import Container from "@/components/atoms/Container.vue";
+import Card from "@/components/organisms/Card.vue";
 import Filter from "@/components/organisms/Filter.vue";
 import Loading from "@/components/molecules/Loading.vue";
 import Wrapper from "@/components/atoms/Wrapper.vue";
