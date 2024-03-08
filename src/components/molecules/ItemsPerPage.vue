@@ -1,6 +1,6 @@
 <template>
   <Container type="itemsPerPageContainer">
-    <h1 class="text-black text-[1.2rem]">Exibir mais</h1>
+    <h1 class="text-v_orange text-[1.2rem] sm:text-[1rem]">Exibir mais</h1>
 
     <Select
       type="itemsPerPage"
@@ -20,8 +20,8 @@ import Container from "../atoms/Container.vue";
 import Select from "../atoms/Select.vue";
 import { ref } from "vue";
 
-const items: any[] = [10, 25, 50, 75, 100];
-const perPage = ref(10);
+const items: any[] = [5, 10, 25];
+const perPage = ref(5);
 const emit = defineEmits(["setItemsPerPage"]);
 
 const getPerPage = () => {

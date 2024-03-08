@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full mt-4" v-if="totalPages.length > 1 || itemsPerPage > 10">
+  <div
+    class="w-full mt-4 flex sm:flex-col justify-between items-center px-8"
+    v-if="totalPages.length > 1 || itemsPerPage > 10"
+  >
     <slot></slot>
   </div>
 </template>
