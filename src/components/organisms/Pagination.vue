@@ -145,8 +145,6 @@ const less = () => {
 onMounted(() => {
   const width = window.innerWidth;
 
-  console.log("www", width);
-
-  if (width < 300) perPage.value = 1;
+  if (width < 400) perPage.value = 1;
 });
 </script>

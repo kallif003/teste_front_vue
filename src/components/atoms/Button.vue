@@ -23,12 +23,6 @@ const button_class = computed(() => {
         intent: {
           paginationButton: `w-[2rem] !h-7 rounded-md`,
 
-          submit: `w-[12rem] h-[3rem] `,
-
-          closeButton: `!h-10 bg-white border-2 border-v_medium_gray px-3`,
-
-          confirmButton: `!h-10 px-3`,
-
           filterButton: `shadow-none !h-8 w-full px-3`,
         },
       },

@@ -1,6 +1,8 @@
 <template>
-  <router-view :key="$router.currentRoute.value.path.split('/')[0]">
-  </router-view>
+  <div class="h-screen">
+    <router-view :key="$router.currentRoute.value.path.split('/')[0]">
+    </router-view>
+  </div>
 </template>
 
 <style>

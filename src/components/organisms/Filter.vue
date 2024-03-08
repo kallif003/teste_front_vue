@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex justify-between items-center w-auto min-w-[23rem] space-x-5 mb-8"
-  >
+  <div class="flex space-x-5">
     <v-menu
       transition="slide-y-transition"
       :close-on-content-click="false"
@@ -31,6 +29,7 @@
             <p class="mb-2 opacity-75 ml-4">Data inicial</p>
 
             <input
+              min="2020-01-01"
               v-model="filterSelected.initialDate"
               :disabled="false"
               type="date"
@@ -52,7 +51,9 @@
           </div>
 
           <Button
-            @click="closeMenu = false"
+            @click="
+              getNacionalAccountsByDate(filterSelected), (closeMenu = false)
+            "
             btn-type="filterButton"
             :disabled="!showButton"
             :class="
@@ -61,17 +62,22 @@
                 : 'bg-v_medium_gray text-white'
             "
           >
-            Gerar relatório
+            Buscar
           </Button>
         </v-list-item>
       </v-list>
     </v-menu>
+
+    <button class="mt-2" @click="clearFilter" v-if="showClearButton">
+      Limpar
+      <v-icon icon="mdi-close" />
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
+/* eslint-disable no-undef */
 import { PropType, ref, watch } from "vue";
-
 import Button from "../atoms/Button.vue";
 import Input from "@/components/atoms/Input.vue";
 import { IFilter } from "@/utils/interface";
@@ -83,6 +89,23 @@ let showButton = ref(false);
 let filterSelected = ref<IFilter>({
   initialDate: "",
   finalDate: "",
+});
+
+defineProps({
+  getNacionalAccountsByDate: {
+    type: Function as PropType<(filter: IFilter) => void>,
+    required: true,
+  },
+
+  showClearButton: {
+    type: Boolean,
+    required: true,
+  },
+
+  clearFilter: {
+    type: Function as PropType<() => void>,
+    required: true,
+  },
 });
 
 watch(closeMenu, () => {

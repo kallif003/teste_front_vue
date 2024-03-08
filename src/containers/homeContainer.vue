@@ -2,22 +2,27 @@
   <Container type="page">
     <Loading :showLoading="showLoading" />
 
-    <div class="w-full flex items-center justify-between mb-2">
-      <Reports />
+    <Wrapper type="filter">
+      <Filter
+        :getNacionalAccountsByDate="getNacionalAccountsByDate"
+        :clearFilter="clearFilter"
+        :showClearButton="showClearButton"
+      />
 
-      <div class="flex flex-col items-center">
-        <h1 style="font-size: 4rem">IBGE</h1>
-        <p class="-mt-8" style="margin-top: -1.5rem">Calendário Nacional</p>
-      </div>
-    </div>
+      <Wrapper type="titloArea">
+        <h1 class="text-[4rem] sm:text-[2rem] sm:mb-3">IBGE</h1>
 
-    <div class="rounded-lg shadow-[0_0.3rem_0.62rem_rgba(252,142,43,0.3)]">
+        <p class="mt-[-1.5rem] sm:text-[0.5rem]">Calendário Nacional</p>
+      </Wrapper>
+    </Wrapper>
+
+    <Wrapper type="dataTable">
       <v-data-table-virtual
         :headers="headers"
         :items="items"
         height="500"
       ></v-data-table-virtual>
-    </div>
+    </Wrapper>
 
     <WrapperPagination :totalPages="totalPages" :itemsPerPage="itemsPerPage">
       <ItemsPerPage @setItemsPerPage="setItemsPerPage" />
@@ -43,7 +48,16 @@ import Pagination from "@/components/organisms/Pagination.vue";
 import ItemsPerPage from "@/components/molecules/ItemsPerPage.vue";
 import { getNacionalAccountsApi } from "@/api/api_ibge";
 import { onMounted, ref } from "vue";
-import { IApiResponse, IIbgeProduct, IResponse } from "@/utils/interface";
+import {
+  IApiResponse,
+  IFilter,
+  IIbgeProduct,
+  IResponse,
+} from "@/utils/interface";
+
+useHead({
+  title: "Teste front end Vue.js - Home",
+});
 
 const headers: any = [
   { title: "Id", align: "start", key: "product_id" },
@@ -55,13 +69,10 @@ const headers: any = [
 
 let totalPages = ref<number[]>([1, 1, 1]);
 let showLoading = ref(false);
+let showClearButton = ref(false);
 let itemsPerPage = ref(5);
 let page = ref(1);
 let items = ref<IIbgeProduct[]>([]);
-
-useHead({
-  title: "Teste front end Vue.js - Home",
-});
 
 const setPagination = (currentPage: number) => {
   if (page.value != currentPage) {
@@ -89,6 +100,11 @@ const setTotalPages = (pages: number): number[] => {
   return totalPages;
 };
 
+const clearFilter = () => {
+  getNacionalAccounts(page.value, itemsPerPage.value);
+  showClearButton.value = false;
+};
+
 const getNacionalAccounts = async (page: number, itemsPerPage: number) => {
   showLoading.value = true;
 
@@ -101,6 +117,30 @@ const getNacionalAccounts = async (page: number, itemsPerPage: number) => {
     items.value = parserData(res.data.items);
 
     totalPages.value = setTotalPages(res?.data.totalPages);
+  }
+
+  showLoading.value = false;
+};
+
+const getNacionalAccountsByDate = async ({
+  initialDate,
+  finalDate,
+}: IFilter) => {
+  showLoading.value = true;
+
+  const res: IResponse = await getNacionalAccountsApi({
+    initialDate,
+    finalDate,
+    page: page.value,
+    itemsPerPage: itemsPerPage.value,
+  });
+
+  if (res?.status == 200) {
+    items.value = parserData(res.data.items);
+
+    totalPages.value = setTotalPages(res?.data.totalPages);
+
+    showClearButton.value = true;
   }
 
   showLoading.value = false;

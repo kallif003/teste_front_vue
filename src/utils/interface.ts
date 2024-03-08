@@ -1,8 +1,5 @@
 export interface IButtonVariant {
   paginationButton: string;
-  submit: string;
-  closeButton: string;
-  confirmButton: string;
   filterButton: string;
 }
 
@@ -16,19 +13,9 @@ export interface IContainerVariant {
 export interface IWrapperVariant {
   animationArea: string;
   textArea: string;
-  inputIcon: string;
-  iconArea: string;
-  logo: string;
-  modal: string;
-  menuIcon: string;
-  dataTable: string;
-  header: string;
-  actionsModal: string;
-  notification: string;
-  deleteModal: string;
   filter: string;
-  card: string;
-  backgroundCard: string;
+  dataTable: string;
+  titloArea: string;
 }
 
 export interface IPagination {
@@ -37,7 +24,8 @@ export interface IPagination {
 }
 
 export interface IGetDate extends IPagination {
-  ini
+  initialDate?: string;
+  finalDate?: string;
 }
 
 export interface IResponse {

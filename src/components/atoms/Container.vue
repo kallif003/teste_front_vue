@@ -25,6 +25,7 @@ const container_class = computed(() => {
 				flex-col
 				justify-center
 				px-8
+				sm:pt-8
 				
         `,
 
@@ -42,8 +43,8 @@ const container_class = computed(() => {
 					justify-evenly
 					w-[20%]
 					items-center
-          sm:w-[40%]
-          sm:space-x-2
+					sm:w-[40%]
+					sm:space-x-2
 				`,
 
         loadingContainer: `

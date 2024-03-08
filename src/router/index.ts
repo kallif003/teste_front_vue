@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import SplashScreen from "../components/molecules/Splash_screen.vue";
-import Home from "@/container/homeContainer.vue";
+import Home from "@/containers/homeContainer.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {

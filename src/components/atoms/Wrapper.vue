@@ -37,118 +37,23 @@ const wrapper_class = computed(() => {
           mt-2
         `,
 
-        inputIcon: `flex space-x-1 w-full relative`,
-
-        iconArea: `bg-v_light_gray flex justify-center items-center rounded-md w-10`,
-
-        logo: `
-          glass-effect 
-          w-[10rem] 
-          rounded-[50%] 
-          h-[8rem] 
+        filter: `
+          w-full 
           flex 
           items-center 
-          justify-center 
-          absolute 
-          z-10 
-          top-[4.5rem]
-          xl:top-[7.5rem]
-          px-8
+          justify-between 
+          mb-2
         `,
-
-        modal: `
-					w-full
-					h-full
-					absolute
-					top-[50%]
-					left-[50%]
-					flex 
-					flex-col
-					items-center 
-					justify-center
-					modalContainer`,
-
-        menuIcon: `
-					h-auto
-					flex
-					flex-col
-					items-center
-					justify-between
-					py-5`,
 
         dataTable: `
-					min-h-[30rem]
-					w-full
-					glass-effect
-					rounded-lg
-					relative
-				`,
-
-        card: `
-					min-h-[30rem]
-					min-w-[40%]
-					glass-effect
-					rounded-lg
-					flex
-          flex-wrap
-				`,
-
-        header: `
-					flex 
-					items-center 
-					w-full 
-          justify-between 
-					mb-8
+          rounded-lg 
+          shadow-[0_0.3rem_0.62rem_rgba(252,142,43,0.3)]
         `,
 
-        actionsModal: `
-					bg-white 
-					flex 
-					flex-col 
-					py-5
-					px-5
-					min-h-[13rem] 
-					w-[60rem] 
-					text-black 
-					rounded-md
-				`,
-
-        notification: `
-					bg-white
-					flex 
-					flex-col 
-					justify-center
-					items-center
-					py-5
-					px-8
-					h-[17rem] 
-					text-black 
-					rounded-md
-				`,
-
-        deleteModal: `
-					bg-white
-					flex 
-					flex-col 
-					justify-center 
-					items-center 
-					h-[10rem] 
-					min-w-[30rem] 
-					text-black 
-					rounded-md
-					px-8
-				`,
-
-        filter: `flex items-end space-x-2 min-w-[42%] sm:flex-col sm:items-start`,
-
-        backgroundCard: `
-            shadow-[0_0.3rem_0.62rem_rgba(0,0,0,0.4)] 
-            bg-v_white
-            rounded-lg 
-            px-2 
-            py-2 
-            mx-2 
-            my-2
+        titloArea: `
+          flex 
+          flex-col 
+          items-center
         `,
       },
     },
